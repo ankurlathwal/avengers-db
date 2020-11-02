@@ -15,13 +15,18 @@ export default async (req, res) => {
   url = url + "&ts=" + ts + "&hash=" + md5(ts + privateKey + publicKey);
   if(req.query && req.query.searchTerm){
     url = url + "&nameStartsWith=" + req.query.searchTerm;
-  }
-  await fetch(url).then(async (response)=>{
+    await fetch(url).then(async (response)=>{
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
       res.statusCode = 200;
       res.json(data.data.results);
   });
+  }
+  else{
+    res.statusCode = 200;
+    res.json([]);
+  }
+  
   
 }
 
