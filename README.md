@@ -13,7 +13,7 @@ Clone the repository and install all dependencies
 npm install
 ```
 
-Get your public and private keys from [https://developer.marvel.com/](Marvel Developer API site)
+Get your public and private keys from [Marvel Developer API site](https://developer.marvel.com/)
 
 Create a environment file to securely store the keys. Create ```.env.development``` and put these key values
 
@@ -30,11 +30,13 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-## Learn More
+## Credits
 
 Credits to the Marvel Developer API.
 Thanks to all the open-source libraries used in this project, including:
 
+- ReactJS
+- Next.js
 - swr
 - Bootstrap
 - jQuery
