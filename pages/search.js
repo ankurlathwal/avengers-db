@@ -14,17 +14,20 @@ export default function Search (props) {
     const [shouldFetch, setShouldFetch] = useState(true);
     const [characters, setCharacters] = useState(null);
     const [searchTerm, setSearchTerm] = useState(null);
+    const [errorString, setErrorString] = useState(false);
     //setShouldFetch(true);
     //let characters = [];
     const { data, error } = useSWR(shouldFetch ? null : '/api/characters?searchTerm=' + searchTerm, fetcher);
     
     if(error){
         console.log(error);
+        setErrorString(true);
     }
     if (!data){
         //
     }
     else if(data){
+        setErrorString(false);
         setCharacters(data.map((character) => 
         <div className="col mb-4">
             <Card key={character.id} character={character}></Card>
@@ -64,6 +67,7 @@ export default function Search (props) {
                     }
                     <div>
                         <h3>{searchTerm ? characters && characters.length ? "Search results" : "No matching results found" : null}</h3>
+                        <h3> {errorString ? "Sorry, there was an error in retrieving results" : null} </h3>
                     </div>
                     <div className="card-deck results-box">
                     <div className="row row-cols-4">
