@@ -29,7 +29,7 @@ export default function Search (props) {
     else if(data){
         //setErrorString(false);
         setCharacters(data.map((character) => 
-        <div className="col mb-4">
+        <div className="col-xs-12 col-sm-4 col-md-3 col-lg-3">
             <Card key={character.id} character={character}></Card>
             <CharacterDetailsModal character={character}></CharacterDetailsModal>
         </div>
@@ -69,10 +69,8 @@ export default function Search (props) {
                         <h3>{searchTerm ? characters && characters.length ? "Search results" : "No matching results found" : null}</h3>
                         {/* <h3> {errorString ? "Sorry, there was an error in retrieving results" : null} </h3> */}
                     </div>
-                    <div className="card-deck results-box">
-                    <div className="row row-cols-4">
+                    <div className="row results-box">
                         {characters}
-                    </div>   
                     </div>   
                 </main>
             </Layout>
