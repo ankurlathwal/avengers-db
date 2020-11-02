@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>AvengersDB</title>
+        <title>Home | AvengersDB</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
@@ -16,7 +16,7 @@ export default function Home() {
             <img src="images/marvel-logo.png" width="200" height="60" alt="Marvel logo"></img>
             <h1>Welcome to AvengersDB!</h1>
             <p>
-              <Link href="/search"><a>Start exploring your favorite superheroes -> </a></Link>
+              <Link href="/search"><a>Start exploring your favorite superheroes -&gt; </a></Link>
             </p>
           </div>
         </div>

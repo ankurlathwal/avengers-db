@@ -1,0 +1,14 @@
+.avengers {
+    background-color: #F0131E;
+    color: white;
+}
+
+.limit {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.avatar {
+    height: 286px;
+}
