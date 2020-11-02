@@ -29,7 +29,7 @@ export default function Search (props) {
     else if(data){
         //setErrorString(false);
         setCharacters(data.map((character) => 
-        <div className="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+        <div className="col-xs-12 col-sm-4 col-md-3 col-lg-3 spacing">
             <Card key={character.id} character={character}></Card>
             <CharacterDetailsModal character={character}></CharacterDetailsModal>
         </div>
