@@ -13,7 +13,7 @@ export default function Search () {
     const [searchTerm, setSearchTerm] = useState(null);
     //setShouldFetch(true);
     //let characters = [];
-    const { data, error } = useSWR(shouldFetch ? null : '/api/characters', fetcher);
+    const { data, error } = useSWR(shouldFetch ? null : '/api/characters?searchTerm=' + searchTerm, fetcher);
     
     if(error){
         console.log(error);
@@ -21,8 +21,7 @@ export default function Search () {
     if (!data){
         //setCharacters(<div></div>)
     }
-    else{
-        console.log(data);
+    else if(data){
         setCharacters(data.map((character) => 
         <div className="col mb-4">
             <Card key={character.id} character={character}></Card>

@@ -4,12 +4,18 @@ let url = "https://gateway.marvel.com:443/v1/public/characters?apikey=00917ea1ce
 
 
 export default async (req, res) => {
-  const ts = Date.now();
+  const ts = Date.now().toString();
   url = url + "&ts=" + ts + "&hash=" + md5(ts + "5e7cc54d717c4c766b79ad06e9070aeb7532d45d" + "00917ea1cef60f75aeb9e64a95c992aa");
-  const response= await fetch(url);
-    res.statusCode = 200;
-    console.log(response);
-    res.json(response);
+  if(req.query && req.query.searchTerm){
+    url = url + "&nameStartsWith=" + req.query.searchTerm;
+  }
+  await fetch(url).then(async (response)=>{
+      const data = await response.json();
+      console.log(data);
+      res.statusCode = 200;
+      res.json(data.data.results);
+  });
+  
 }
 
 
