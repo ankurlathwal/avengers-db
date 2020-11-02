@@ -1,9 +1,11 @@
 import Card from "./card";
+import CharacterDetailsModal from "./characterDetailsModal";
 
 export default function PopularCharacters(props){   
     const characters = props.list.map((character) => 
         <div className="col mb-4">
             <Card key={character.id} character={character}></Card>
+            <CharacterDetailsModal character={character}></CharacterDetailsModal>
         </div>
         )
     return(

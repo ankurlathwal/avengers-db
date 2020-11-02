@@ -5,6 +5,7 @@ import Card from '../components/card';
 import useSWR from 'swr';
 import {getPopularCharacters} from "../lib/popular-characters";
 import PopularCharacters from "../components/popularCharacters";
+import CharacterDetailsModal from "../components/characterDetailsModal";
 
 
 const fetcher = async (url) => await fetch(url).then(res =>res.json());
@@ -27,6 +28,7 @@ export default function Search (props) {
         setCharacters(data.map((character) => 
         <div className="col mb-4">
             <Card key={character.id} character={character}></Card>
+            <CharacterDetailsModal character={character}></CharacterDetailsModal>
         </div>
         )) 
         setShouldFetch(true);

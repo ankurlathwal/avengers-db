@@ -7,7 +7,7 @@ const Card = (props) => {
                 <div className="card-body">
                     <h5 className="card-title">{props.character.name}</h5>
                     <p className={["card-text", styles.limit].join(' ')}>{props.character.description ? props.character.description : <i>No description available</i>}</p>
-                    <a href="#" className={["btn",styles.avengers].join(' ')}>See Details</a>
+                    <button type="button" className={["btn",styles.avengers].join(' ')} data-toggle="modal" data-target={"#characterModal" + props.character.id}>See Details</button>
                 </div>
         </div>
     )
