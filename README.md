@@ -1,5 +1,7 @@
 # AvengersDB
 
+AvengersDB is a simple application built using Next.js that allows you to search and view details about Marvel characters. 
+
 ## Live Demo
 
 A live demo of this app is hosted at: [https://avengers-db.vercel.app/](https://avengers-db.vercel.app/)
