@@ -2,7 +2,7 @@ import styles from './card.module.css';
 
 const Card = (props) => {
     return (
-        <div className="card h-100" style={{width: 18 + 'rem'}}>
+        <div className="card h-100">
             <img src={props.character.thumbnail.path + '.' + props.character.thumbnail.extension} className={["card-img-top", styles.avatar].join(' ')} alt={props.character.name} />
                 <div className="card-body">
                     <h5 className="card-title">{props.character.name}</h5>
