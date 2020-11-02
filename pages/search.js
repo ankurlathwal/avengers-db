@@ -32,7 +32,6 @@ export default function Search () {
         
 
     const searchUpdated = (value) => {
-        console.log("Search updated.." + value);
         setSearchTerm(value);
         setShouldFetch(false);
     }
