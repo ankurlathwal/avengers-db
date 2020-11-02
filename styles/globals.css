@@ -14,3 +14,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.middle {
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+.dead-link, .dead-link:hover, .dead-link:visited .dead-link:active{
+  color: black;
+  text-decoration: underline;
+}
