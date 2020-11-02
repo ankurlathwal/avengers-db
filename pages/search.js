@@ -14,7 +14,7 @@ export default function Search (props) {
     const [shouldFetch, setShouldFetch] = useState(true);
     const [characters, setCharacters] = useState(null);
     const [searchTerm, setSearchTerm] = useState(null);
-    //const [errorString, setErrorString] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     //setShouldFetch(true);
     //let characters = [];
     const { data, error } = useSWR(shouldFetch ? null : '/api/characters?searchTerm=' + searchTerm, fetcher);
@@ -24,9 +24,10 @@ export default function Search (props) {
         //setErrorString(true);
     }
     if (!data){
-        //
+        //setIsLoading(true);
     }
     else if(data){
+        
         //setErrorString(false);
         setCharacters(data.map((character) => 
         <div className="col-xs-12 col-sm-4 col-md-3 col-lg-3 spacing">
@@ -35,12 +36,14 @@ export default function Search (props) {
         </div>
         )) 
         setShouldFetch(true);
+        setIsLoading(false);
     }
         
 
     const searchUpdated = (value) => {
         setSearchTerm(value);
         setShouldFetch(false);
+        
     }
     
         return (
@@ -66,8 +69,8 @@ export default function Search (props) {
                     </div>
                     }
                     <div>
-                        <h3>{searchTerm ? characters && characters.length ? "Search results" : "No matching results found" : null}</h3>
-                        {/* <h3> {errorString ? "Sorry, there was an error in retrieving results" : null} </h3> */}
+                        <h3>{searchTerm && !isLoading ? characters && characters.length ? "Search results" : "No matching results found" : null}</h3>
+                        <h3> {isLoading ? "Loading...." : null} </h3>
                     </div>
                     <div className="row results-box">
                         {characters}
