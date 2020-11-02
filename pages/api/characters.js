@@ -1,11 +1,18 @@
 
 import md5 from 'md5';
-let url = "https://gateway.marvel.com:443/v1/public/characters?apikey=00917ea1cef60f75aeb9e64a95c992aa&limit=10";
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
+const publicKey = `${process.env.MARVEL_PUBLIC_KEY}`;
+const privateKey = `${process.env.MARVEL_PRIVATE_KEY}`
+
+let url = "https://gateway.marvel.com:443/v1/public/characters?limit=10&apikey=" + publicKey;
 
 
 export default async (req, res) => {
   const ts = Date.now().toString();
-  url = url + "&ts=" + ts + "&hash=" + md5(ts + "5e7cc54d717c4c766b79ad06e9070aeb7532d45d" + "00917ea1cef60f75aeb9e64a95c992aa");
+  url = url + "&ts=" + ts + "&hash=" + md5(ts + privateKey + publicKey);
   if(req.query && req.query.searchTerm){
     url = url + "&nameStartsWith=" + req.query.searchTerm;
   }
